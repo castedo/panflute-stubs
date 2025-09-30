@@ -1,7 +1,61 @@
+# https://github.com/sergiocorreia/panflute/issues/258
+# MetaList inherits from both Element and MutableSequence which use index differently
+panflute.Element.index
+panflute.base.Element.index
+
+
+# methods TBD
+
+panflute.elements.MetaList.*
+panflute.elements.MetaMap.*
+
+
+# elements TBD
+
+panflute.elements.BlockQuote
+panflute.elements.BulletList
+panflute.elements.Citation
+panflute.elements.Cite
+panflute.elements.Code
+panflute.elements.CodeBlock
+panflute.elements.Definition
+panflute.elements.DefinitionItem
+panflute.elements.DefinitionList
+panflute.elements.Div
+panflute.elements.Figure
+panflute.elements.HorizontalRule
+panflute.elements.Image
+panflute.elements.LineBlock
+panflute.elements.LineBreak
+panflute.elements.LineItem
+panflute.elements.Link
+panflute.elements.ListItem
+panflute.elements.Math
+panflute.elements.Note
+panflute.elements.Null
+panflute.elements.OrderedList
+panflute.elements.Plain
+panflute.elements.Quoted
+panflute.elements.RawBlock
+panflute.elements.RawInline
+panflute.elements.SmallCaps
+panflute.elements.SoftBreak
+panflute.elements.Span
+panflute.elements.Strikeout
+panflute.elements.Subscript
+panflute.elements.Superscript
+panflute.elements.Underline
+
+
+# entire submodules TBD
+
+panflute.io
+
+
+# entire submodules ignored or TBD
+
 panflute.autofilter
 panflute.containers
-# panflute.elements.*
-panflute.io
 panflute.table_elements
 panflute.tools
 panflute.utils

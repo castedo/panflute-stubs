@@ -1,5 +1,5 @@
 from __future__ import annotations
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 
 from typing import Callable, Never, TypeAlias
 
@@ -40,10 +40,7 @@ class Element:
     ) -> Element | list[Never] | None: ...
 
     @property
-    def content(self) -> Sequence[Element]: ...
-
-    @property
-    def index(self) -> int | None: ...
+    def content(self) -> Sequence[Element] | Mapping[str, MetaValue]: ...
 
     def ancestor(self, n: int) -> Element | None: ...
 
