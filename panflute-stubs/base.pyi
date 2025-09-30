@@ -1,12 +1,17 @@
 from __future__ import annotations
+from collections.abc import Sequence
 
-from typing import Any, Callable, Never, NoReturn
-
+from typing import Callable, Never, TypeAlias
 
 from _typeshed import (
     Incomplete as DictContainer,
     Incomplete as Doc,
     Incomplete as ListContainer,
+)
+
+
+_JSONType: TypeAlias = (
+    None | str | int | float | list['_JSONType'] | dict[str, '_JSONType']
 )
 
 
@@ -16,7 +21,7 @@ class Element:
     @property
     def tag(self) -> str: ...
 
-    def to_json(self) -> dict[str, Any]: ...
+    def to_json(self) -> dict[str, _JSONType]: ...
 
     @property
     def parent(self) -> Element | None: ...
@@ -35,7 +40,7 @@ class Element:
     ) -> Element | list[Never] | None: ...
 
     @property
-    def content(self) -> NoReturn: ...
+    def content(self) -> Sequence[Element]: ...
 
     @property
     def index(self) -> int | None: ...
