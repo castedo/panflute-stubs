@@ -4,10 +4,14 @@ panflute.Element.index
 panflute.base.Element.index
 
 
-# methods TBD
+# methods ignored or TBD
 
 panflute.elements.MetaList.*
 panflute.elements.MetaMap.*
+panflute.io.run_filter
+panflute.io.run_filters
+panflute.io.toJSONFilter
+panflute.io.toJSONFilters
 
 
 # elements TBD
@@ -45,11 +49,6 @@ panflute.elements.Strikeout
 panflute.elements.Subscript
 panflute.elements.Superscript
 panflute.elements.Underline
-
-
-# entire submodules TBD
-
-panflute.io
 
 
 # entire submodules ignored or TBD

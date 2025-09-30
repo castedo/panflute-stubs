@@ -13,3 +13,8 @@ from .elements import (
     Str as Str,
     Strong as Strong,
 )
+
+from .io import (
+    dump as dump,
+    load as load,
+)
