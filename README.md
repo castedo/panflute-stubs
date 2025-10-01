@@ -21,6 +21,21 @@ Status
 As of September 2025, these stub files do not yet type most of the classes and methods of
 panflute.
 
-The file <stubtest-ignore.txt> provides a good summary of what is not currently typed.
+The file [stubtest-ignore.txt](./stubtest-ignore.txt) provides a good summary of what is not currently typed.
 
 Pull requests are welcome for adding more type hints.
+
+
+Testing
+-------
+
+There are three independent ways these type hints can be tested.
+
+1. Run `just test` in this repo. This will run stubtest against these stubs and the
+   panflute you have installed. You can use the `just` utility or just look at
+   [justfile](./justfile) and run the command line in bash.
+2. Run `mypy --strict` on your project with these stubs.
+3. Run `mypy --strict` on the `panflute` library source code itself.
+
+Note that the later two ways will also find issues in your code and/or panflute,
+not only the type stubs here.

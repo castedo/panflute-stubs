@@ -16,7 +16,6 @@ panflute.io.toJSONFilters
 
 # elements TBD
 
-panflute.elements.BlockQuote
 panflute.elements.BulletList
 panflute.elements.Citation
 panflute.elements.Cite
@@ -32,7 +31,6 @@ panflute.elements.Image
 panflute.elements.LineBlock
 panflute.elements.LineBreak
 panflute.elements.LineItem
-panflute.elements.Link
 panflute.elements.ListItem
 panflute.elements.Math
 panflute.elements.Note

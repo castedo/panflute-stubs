@@ -47,6 +47,12 @@ class Para(Block):
     def __init__(self, *args: Inline): ...
 
 
+class BlockQuote(Block):
+    content: MutableSequence[Block]
+
+    def __init__(self, *args: Block): ...
+
+
 class Emph(Inline):
     content: MutableSequence[Inline]
 
@@ -70,6 +76,25 @@ class Header(Block):
         self,
         *args: Iterable[Inline],
         level: int = 1,
+        identifier: str = '',
+        classes: Iterable[str] = [],
+        attributes: Mapping[str, str] = {},
+    ): ...
+
+
+class Link(Inline):
+    content: MutableSequence[Inline]
+    url: str
+    title: str
+    identifier: str
+    classes: list[str]
+    attributes: dict[str, str]
+
+    def __init__(
+        self,
+        *args: Inline,
+        url: str = '',
+        title: str = '',
         identifier: str = '',
         classes: Iterable[str] = [],
         attributes: Mapping[str, str] = {},

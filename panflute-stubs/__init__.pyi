@@ -6,8 +6,11 @@ from .base import (
 )
 
 from .elements import (
+    BlockQuote as BlockQuote,
     Doc as Doc,
     Emph as Emph,
+    Header as Header,
+    Link as Link,
     Para as Para,
     Space as Space,
     Str as Str,
