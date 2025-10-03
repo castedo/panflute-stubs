@@ -1,13 +1,15 @@
 from __future__ import annotations
 from collections.abc import Mapping, Sequence
 
-from typing import Callable, Never, TypeAlias
+from typing import Callable, Never, TYPE_CHECKING, TypeAlias
 
 from _typeshed import (
     Incomplete as DictContainer,
-    Incomplete as Doc,
     Incomplete as ListContainer,
 )
+
+if TYPE_CHECKING:
+    from .elements import Doc
 
 
 _JSONType: TypeAlias = (
