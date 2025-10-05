@@ -18,18 +18,16 @@ _JSONType: TypeAlias = (
 
 
 class Element:
+    parent: Element | None
+    location: str | None
+    index: int | None
+
     def __new__(cls, *args: Never, **kwargs: Never): ...
 
     @property
     def tag(self) -> str: ...
 
     def to_json(self) -> dict[str, _JSONType]: ...
-
-    @property
-    def parent(self) -> Element | None: ...
-
-    @property
-    def location(self) -> str | None: ...
 
     @property
     def doc(self) -> Doc | None: ...
