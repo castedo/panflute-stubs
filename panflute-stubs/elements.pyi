@@ -133,12 +133,39 @@ class Header(Block):
 
     def __init__(
         self,
-        *args: Iterable[Inline],
+        *args: Inline,
         level: int = 1,
         identifier: str = '',
         classes: Iterable[str] = [],
         attributes: Mapping[str, str] = {},
     ): ...
+
+
+class Cite(Inline):
+    citations: MutableSequence[Citation]
+
+    def __init__(self, *args: Inline, citations: Iterable[Citation] = []) -> None: ...
+
+
+class Citation(Element):
+    id: str
+    mode: _CitationMode
+    hash: int
+    note_num: int
+    prefix: MutableSequence[Inline]
+    suffix: MutableSequence[Inline]
+
+    def __init__(
+        self,
+        id: str,
+        mode: _CitationMode = 'NormalCitation',
+        prefix: Iterator[Inline] | Literal[''] = '',
+        suffix: Iterator[Inline] | Literal[''] = '',
+        hash: int = 0,
+        note_num: int = 0,
+    ) -> None: ...
+
+    def to_json_legacy(self) -> NoReturn: ...
 
 
 class Link(Inline):
@@ -321,7 +348,12 @@ _ListNumberDelimiters: TypeAlias = Literal[
 ]
 
 QUOTE_TYPES: set[str]
+
 CITATION_MODE: set[str]
+_CitationMode: TypeAlias = Literal[
+    'AuthorInText', 'SuppressAuthor', 'NormalCitation'
+]
+
 MATH_FORMATS: set[str]
 RAW_FORMATS: set[str]
 SPECIAL_ELEMENTS: set[str]

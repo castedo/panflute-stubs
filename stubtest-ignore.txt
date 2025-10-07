@@ -8,8 +8,6 @@ panflute.io.toJSONFilters
 
 # elements TBD
 
-panflute.elements.Citation
-panflute.elements.Cite
 panflute.elements.Definition
 panflute.elements.DefinitionItem
 panflute.elements.DefinitionList
