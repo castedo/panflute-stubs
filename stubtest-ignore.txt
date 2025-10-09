@@ -17,9 +17,6 @@ panflute.elements.Image
 panflute.elements.LineBlock
 panflute.elements.LineItem
 panflute.elements.Math
-panflute.elements.Quoted
-panflute.elements.RawBlock
-panflute.elements.RawInline
 panflute.elements.Span
 
 

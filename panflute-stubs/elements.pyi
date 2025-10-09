@@ -141,6 +141,13 @@ class Header(Block):
     ): ...
 
 
+class Quoted(Inline):
+    content: MutableSequence[Inline]
+    quote_type: _QuoteTypes
+
+    def __init__(self, *args: Inline, quote_type: _QuoteTypes = 'DoubleQuote'): ...
+
+
 class Cite(Inline):
     citations: MutableSequence[Citation]
 
@@ -208,6 +215,13 @@ class CodeBlock(Block):
     ) -> None: ...
 
 
+class RawBlock(Block):
+    text: str
+    format: _RawFormats
+
+    def __init__(self, text: str, format: _RawFormats = 'html'): ...
+
+
 class Code(Inline):
     text: str
     identifier: str
@@ -221,6 +235,13 @@ class Code(Inline):
         classes: Iterable[str] = [],
         attributes: Mapping[str, str] = {},
     ) -> None: ...
+
+
+class RawInline(Inline):
+    text: str
+    format: _RawFormats
+
+    def __init__(self, text: str, format: _RawFormats = 'html'): ...
 
 
 class ListItem(Element):
@@ -348,14 +369,56 @@ _ListNumberDelimiters: TypeAlias = Literal[
 ]
 
 QUOTE_TYPES: set[str]
+_QuoteTypes: TypeAlias = Literal['SingleQuote', 'DoubleQuote']
 
 CITATION_MODE: set[str]
-_CitationMode: TypeAlias = Literal[
-    'AuthorInText', 'SuppressAuthor', 'NormalCitation'
-]
+_CitationMode: TypeAlias = Literal['AuthorInText', 'SuppressAuthor', 'NormalCitation']
 
 MATH_FORMATS: set[str]
+
 RAW_FORMATS: set[str]
+_RawFormats: TypeAlias = Literal[
+    'tex',
+    'latex',
+    'html',
+    'context',
+    'rtf',
+    'opendocument',
+    'noteref',
+    'openxml',
+    'icml',
+    'commonmark',
+    'creole',
+    'docbook',
+    'docx',
+    'dokuwiki',
+    'epub',
+    'fb2',
+    'gfm',
+    'haddock',
+    'ipynb',
+    'jats',
+    'json',
+    'man',
+    'markdown',
+    'markdown_github',
+    'markdown_mmd',
+    'markdown_phpextra',
+    'markdown_strict',
+    'mediawiki',
+    'muse',
+    'native',
+    'odt',
+    'opml',
+    'org',
+    'rst',
+    't2t',
+    'textile',
+    'tikiwiki',
+    'twiki',
+    'vimwiki',
+]
+
 SPECIAL_ELEMENTS: set[str]
 EMPTY_ELEMENTS: set[Element]
 
