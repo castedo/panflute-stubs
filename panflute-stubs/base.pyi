@@ -12,8 +12,8 @@ if TYPE_CHECKING:
     from .elements import Doc
 
 
-_JSONType: TypeAlias = (
-    None | str | int | float | list['_JSONType'] | dict[str, '_JSONType']
+_JsonData: TypeAlias = (
+    None | str | int | float | list['_JsonData'] | dict[str, '_JsonData']
 )
 
 
@@ -27,7 +27,7 @@ class Element:
     @property
     def tag(self) -> str: ...
 
-    def to_json(self) -> dict[str, _JSONType]: ...
+    def to_json(self) -> dict[str, _JsonData]: ...
 
     @property
     def doc(self) -> Doc | None: ...

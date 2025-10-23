@@ -1,24 +1,18 @@
-# methods ignored or TBD
+# submodules TBD
 
-panflute.io.run_filter
-panflute.io.run_filters
-panflute.io.toJSONFilter
-panflute.io.toJSONFilters
+panflute.table_elements
+panflute.tools
 
 
-# elements TBD
-
-panflute.elements.Figure
-panflute.elements.LineBlock
-panflute.elements.LineItem
-panflute.elements.Math
-
-
-# entire submodules ignored or TBD
+# intentionally ignored submodules (low-level, internal, or not in documentation)
 
 panflute.autofilter
 panflute.containers
-panflute.table_elements
-panflute.tools
 panflute.utils
 panflute.version
+
+
+# intentionally ignored methods (use alternative methods)
+
+panflute.io.toJSONFilter
+panflute.io.toJSONFilters

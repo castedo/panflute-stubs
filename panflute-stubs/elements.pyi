@@ -4,10 +4,13 @@ from _typeshed import Incomplete
 from collections.abc import Iterable, Iterator, Mapping, MutableMapping, MutableSequence
 from typing import Literal, Never, NoReturn, TypeAlias, overload
 
-from .base import Block, Element, Inline, MetaValue, _JSONType
+# from .table_elements import Caption
+Caption: TypeAlias = Incomplete
+
+from .base import Block, Element, Inline, MetaValue, _JsonData
 
 
-_BuiltinType: TypeAlias = _JSONType | Inline | Block
+_BuiltinType: TypeAlias = _JsonData | Inline | Block
 
 _ApiVersionTuple: TypeAlias = (
     tuple[int, int] | tuple[int, int, int] | tuple[int, int, int, int]
@@ -20,7 +23,7 @@ class Doc(Element):
     format: str
     api_version: _ApiVersionTuple
     pandoc_version: tuple[int, int, int, int]
-    pandoc_reader_options: _JSONType
+    pandoc_reader_options: _JsonData
 
     def __init__(
         self,
@@ -286,6 +289,13 @@ class Code(Inline):
     ) -> None: ...
 
 
+class Math(Inline):
+    text: str
+    format: _MathFormats
+
+    def __init__(self, text: str, format: _MathFormats = 'DisplayMath'): ...
+
+
 class RawInline(Inline):
     text: str
     format: _RawFormats
@@ -339,6 +349,35 @@ class DefinitionList(Block):
     def __init__(self, *args: DefinitionItem): ...
 
 
+class LineItem(Element):
+    content: MutableSequence[Inline]
+
+    def __init__(self, *args: Inline): ...
+
+
+class LineBlock(Block):
+    content: MutableSequence[LineItem]
+
+    def __init__(self, *args: LineItem): ...
+
+
+class Figure(Block):
+    content: MutableSequence[Block]
+    caption: Caption
+    identifier: str
+    classes: list[str]
+    attributes: dict[str, str]
+
+    def __init__(
+        self,
+        *args: Block,
+        caption: Caption | None = None,
+        identifier: str = '',
+        classes: Iterable[str] = [],
+        attributes: Mapping[str, str] = {},
+    ): ...
+
+
 class MetaList(MetaValue, MutableSequence):
     # MetaList inherits from both Element and MutableSequence.
     # Element.index is a property, but MutableSequence.index is a function.
@@ -386,7 +425,7 @@ class MetaMap(MetaValue, MutableMapping):
     def __init__(
         self,
         *args: tuple[str, MetaValue | _BuiltinType],
-        **kwargs: tuple[str, MetaValue | _BuiltinType],
+        **kwargs: MetaValue | _BuiltinType,
     ): ...
 
     def __delitem__(self, k: str) -> None: ...
@@ -443,6 +482,7 @@ CITATION_MODE: set[str]
 _CitationMode: TypeAlias = Literal['AuthorInText', 'SuppressAuthor', 'NormalCitation']
 
 MATH_FORMATS: set[str]
+_MathFormats: TypeAlias = Literal['DisplayMath', 'InlineMath']
 
 RAW_FORMATS: set[str]
 _RawFormats: TypeAlias = Literal[
@@ -491,7 +531,7 @@ SPECIAL_ELEMENTS: set[str]
 EMPTY_ELEMENTS: set[Element]
 
 
-def from_json(data: _JSONType) -> Incomplete: ...
+def from_json(data: _JsonData) -> Incomplete: ...
 
 
 def builtin2meta(val: _BuiltinType) -> MetaValue: ...
