@@ -12,7 +12,8 @@ panflute.utils
 panflute.version
 
 
-# intentionally ignored methods (use alternative methods)
+# intentionally ignored (probably obsolete)
 
+panflute.elements.Null
 panflute.io.toJSONFilter
 panflute.io.toJSONFilters

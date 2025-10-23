@@ -41,10 +41,6 @@ class Doc(Element):
     ) -> _BuiltinType | MetaValue: ...
 
 
-class Null(Block):
-    def __init__(self, *args: Never): ...
-
-
 class Space(Inline):
     def __init__(self, *args: Never): ...
 
