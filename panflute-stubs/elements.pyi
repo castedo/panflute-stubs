@@ -141,6 +141,36 @@ class Header(Block):
     ): ...
 
 
+class Div(Block):
+    content: MutableSequence[Block]
+    identifier: str
+    classes: list[str]
+    attributes: dict[str, str]
+
+    def __init__(
+        self,
+        *args: Block,
+        identifier: str = '',
+        classes: Iterable[str] = [],
+        attributes: Mapping[str, str] = {},
+    ): ...
+
+
+class Span(Inline):
+    content: MutableSequence[Inline]
+    identifier: str
+    classes: list[str]
+    attributes: dict[str, str]
+
+    def __init__(
+        self,
+        *args: Inline,
+        identifier: str = '',
+        classes: Iterable[str] = [],
+        attributes: Mapping[str, str] = {},
+    ): ...
+
+
 class Quoted(Inline):
     content: MutableSequence[Inline]
     quote_type: _QuoteTypes
@@ -176,6 +206,25 @@ class Citation(Element):
 
 
 class Link(Inline):
+    content: MutableSequence[Inline]
+    url: str
+    title: str
+    identifier: str
+    classes: list[str]
+    attributes: dict[str, str]
+
+    def __init__(
+        self,
+        *args: Inline,
+        url: str = '',
+        title: str = '',
+        identifier: str = '',
+        classes: Iterable[str] = [],
+        attributes: Mapping[str, str] = {},
+    ): ...
+
+
+class Image(Inline):
     content: MutableSequence[Inline]
     url: str
     title: str
@@ -269,6 +318,25 @@ class OrderedList(Block):
         style: _ListNumberStyles = 'Decimal',
         delimiter: _ListNumberDelimiters = 'Period',
     ): ...
+
+
+class Definition(Element):
+    content: MutableSequence[Block]
+
+    def __init__(self, *args: Block): ...
+
+
+class DefinitionItem(Element):
+    term: MutableSequence[Inline]
+    definitions: MutableSequence[Definition]
+
+    def __init__(self, term: Iterable[Inline], definitions: Iterable[Definition]): ...
+
+
+class DefinitionList(Block):
+    content: MutableSequence[DefinitionItem]
+
+    def __init__(self, *args: DefinitionItem): ...
 
 
 class MetaList(MetaValue, MutableSequence):

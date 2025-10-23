@@ -8,16 +8,10 @@ panflute.io.toJSONFilters
 
 # elements TBD
 
-panflute.elements.Definition
-panflute.elements.DefinitionItem
-panflute.elements.DefinitionList
-panflute.elements.Div
 panflute.elements.Figure
-panflute.elements.Image
 panflute.elements.LineBlock
 panflute.elements.LineItem
 panflute.elements.Math
-panflute.elements.Span
 
 
 # entire submodules ignored or TBD
