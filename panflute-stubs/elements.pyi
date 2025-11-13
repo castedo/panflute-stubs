@@ -4,8 +4,7 @@ from _typeshed import Incomplete
 from collections.abc import Iterable, Iterator, Mapping, MutableMapping, MutableSequence
 from typing import Literal, Never, NoReturn, TypeAlias, overload
 
-# from .table_elements import Caption
-Caption: TypeAlias = Incomplete
+from .table_elements import Caption
 
 from .base import Block, Element, Inline, MetaValue, _JsonData
 

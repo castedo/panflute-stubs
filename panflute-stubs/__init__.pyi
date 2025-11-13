@@ -59,3 +59,13 @@ from .io import (
     run_filter as run_filter,
     run_filters as run_filters,
 )
+
+from .table_elements import (
+    Caption as Caption,
+    Table as Table,
+    TableBody as TableBody,
+    TableCell as TableCell,
+    TableFoot as TableFoot,
+    TableHead as TableHead,
+    TableRow as TableRow,
+)

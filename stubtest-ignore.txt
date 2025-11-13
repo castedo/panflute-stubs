@@ -1,6 +1,5 @@
 # submodules TBD
 
-panflute.table_elements
 panflute.tools
 
 
